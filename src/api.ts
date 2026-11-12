@@ -7,7 +7,7 @@ async function getJSON<T>(url: string): Promise<T> {
     try {
       msg = (await res.json()).error ?? msg;
     } catch {
-      /* keep HTTP code */
+      msg = `${msg} (no JSON body from ${url}) — the local API server is probably not running; start it with "npm run dev"`;
     }
     throw new Error(msg);
   }

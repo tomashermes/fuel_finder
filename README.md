@@ -12,6 +12,13 @@ npm install
 npm run dev          # API on :8787 + web on http://localhost:5173
 ```
 
+`npm run dev:web` (Vite only) also works: the dev server starts the local API
+itself and waits for it to accept connections before serving the page. If the
+API is unreachable, `/api/*` returns **502 with a readable JSON message**
+(`"Local API server is not running on http://localhost:8787…"`) instead of an
+opaque empty `500`, so the error shown under the address field tells you what
+to start.
+
 Open **http://localhost:5173**. The address field is prefilled with
 `Oerlikon, Zürich, Switzerland` and a search runs automatically.
 
